@@ -9,8 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WheatFieldTest {
     private WheatField wheatField;
+
     Player playerA;
     Game game;
+
 
     @BeforeEach
     void setUp() {
@@ -31,7 +33,7 @@ class WheatFieldTest {
 
         wheatField.takeEffect(game);
 
-        assertEquals(1, game.getPlayers().get(0).getTotalCoin());
+        assertEquals(4, game.getPlayers().get(0).getTotalCoin());
         assertEquals(99, game.getBank().getTotalCoin());
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Player {
     private final String name;
-    private int totalCoin = 0;
+    private int totalCoin = 3;
     private List<Establishment> ownedEstablishment = new ArrayList<>();
     private List<Landmark> ownedLandmark = new ArrayList<>();
 
@@ -29,14 +29,11 @@ public class Player {
 
     }
 
-    public void payCoin() {
-
+    public void payCoin(int coin) {
+       this.totalCoin -= coin;
     }
 
     public void gainCoin(int coin) {
         this.totalCoin += coin;
-
     }
-
-
 }
