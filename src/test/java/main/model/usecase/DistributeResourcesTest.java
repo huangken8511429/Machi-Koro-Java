@@ -33,7 +33,7 @@ public class DistributeResourcesTest {
     @DisplayName(
             "given 有銀行(100 coin)、A 玩家(3 coin)，A 玩家手牌裡有小麥田 " +
                     "when A 玩家擲骰子是1時，系統分配資源後 " +
-                    "then A 玩家從銀行獲得1元(銀行 coin = 99, A 玩家 coin = 1)")
+                    "then A 玩家從銀行獲得1元(銀行 coin = 99, A 玩家 coin = 4)")
     void testWheatField() {
         // given
         playerA.addCardToHandCard(wheatField);
@@ -128,12 +128,12 @@ public class DistributeResourcesTest {
     }
     @Test
     @DisplayName(
-                    "given A,B,C,D 玩家 (A,B,C 各3 Coin) 玩家B、C各擁有一間咖啡館，玩家D有2元"+
+                    "given A,B,C,D 玩家 (A,B,C 各3 Coin) 玩家B、C各擁有一間咖啡館，玩家D有4元"+
                     "when D 玩家擲骰子是3時，系統分配資源後 " +
-                    "then B、C玩家從玩家D各獲得1元，玩家D少2元 (A玩家 coin =3 ,B,C玩家 coin = 4, D 玩家 coin = 0)")
+                    "then B、C玩家從玩家D各獲得1元，玩家D少2元 (A玩家 coin = 3 ,B,C玩家 coin = 4, D 玩家 coin = 0)")
     void playerBC_has_OneCafe() {
         // given
-        playerD.payCoin(1);
+        playerD.gainCoin(1);
         playerB.addCardToHandCard(cafe);
         playerC.addCardToHandCard(cafe);
 
@@ -143,10 +143,9 @@ public class DistributeResourcesTest {
 
         // then
         assertEquals(100, game.getBank().getTotalCoin());
-        assertEquals(3, playerA.getTotalCoin());
         assertEquals(4, playerB.getTotalCoin());
         assertEquals(4, playerC.getTotalCoin());
-        assertEquals(0, playerD.getTotalCoin());
+        assertEquals(2, playerD.getTotalCoin());
     }
 
     private void settingDicePointAndTakeEffect(int point, Game game) {
