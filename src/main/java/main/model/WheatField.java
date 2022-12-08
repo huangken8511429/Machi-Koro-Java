@@ -9,18 +9,11 @@ public class WheatField extends Establishment {
     }
 
     @Override
-    public void takeEffect(Game game) {
+    public void takeEffect(Game game,Player player) {
         // 任何人骰出這個數字時，你都可以從銀行獲得1元
         if (isDicePointToTakeEffect(game.getCurrentDicePoint())) {
-            payCoin(game.getBank());
-            gainCoin(game.getTurnPlayer());
+            game.getBank().payCoin(COIN_TO_PAY);
+            player.gainCoin(COIN_TO_GAIN);
         }
     }
-    void payCoin(Bank bank) {
-        bank.payCoin(COIN_TO_PAY);
-    }
-    void gainCoin(Player player) {
-        player.gainCoin(COIN_TO_GAIN);
-    }
-
 }

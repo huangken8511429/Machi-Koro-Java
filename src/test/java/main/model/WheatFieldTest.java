@@ -28,7 +28,7 @@ class WheatFieldTest {
         game.setCurrentDicePoint(1);
         game.setTurnPlayer(playerA);
 
-        wheatField.takeEffect(game);
+        wheatField.takeEffect(game,playerA);
 
         assertEquals(4, game.getPlayers().get(0).getTotalCoin());
         assertEquals(99, game.getBank().getTotalCoin());
